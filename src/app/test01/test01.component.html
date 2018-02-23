@@ -1,19 +1,26 @@
 <div class="container">
 
-  <h1 class="text-center"><i>Book an Appointment</i></h1>
-  <h4 class="text-center"><i>Our Investing Topics</i></h4>
+  <h1 class="text-center"><i>{{'bookApt' | translate}}</i></h1>
+  <h4 class="text-center"><i>{{'ourInvest' | translate}}</i></h4>
   <br/>
-  <h2 class="text-center"><i>Pick a topic, then we'll find a time and place</i></h2>
+  <h2 class="text-center"><i>{{'pickTopic' | translate}}</i></h2>
   <br/>
   <div class="row">
-    <div *ngFor="let button of buttons" class="col-sm-12 col-md-6">
-        <button type="button" class="btn btn-td">{{button.text}}</button>
+    <div *ngIf = "buttons && buttons.length ===1" class="col-sm-12 col-md-12">
+        <button type="button" class="btn btn-td">{{buttons[0].text | translate}}</button>
+    </div>
+    <div *ngIf = "buttons && buttons.length >1">
+
+    <div  *ngFor="let button of buttons" class="col-sm-12 col-md-6">
+        <button type="button" class="btn btn-td">{{button.text | translate}}</button>
       
     </div>
   </div>
+
+  </div>
   <br/>
   <div class="text-center">
-      <a routerLink="/home">< Return to previous screen</a>
+      <a routerLink="/home">{{'returnToPrevious' | translate}}</a>
 
   </div>
 </div>
